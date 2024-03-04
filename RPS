@@ -1,0 +1,57 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner in = new Scanner(System.in);
+        char playAgain;
+
+        do {
+            char choiceA, choiceB;
+
+            do {
+                System.out.println("Player A's move (R/P/S):");
+                choiceA = Character.toUpperCase(in.next().charAt(0));
+                if (choiceA != 'R' && choiceA != 'P' && choiceA != 'S') {
+                    System.out.println("Invalid input, Please enter R, P, or S.");
+                }
+            }
+            while (choiceA != 'R' && choiceA != 'P' && choiceA != 'S');
+
+            do {
+                System.out.println("Player B's move (R/P/S):");
+                choiceB = Character.toUpperCase(in.next().charAt(0));
+                if (choiceB != 'R' && choiceB != 'P' && choiceB != 'S') {
+                    System.out.println("Invalid input, enter R, P, or S.");
+                }
+            }
+            while (choiceB != 'R' && choiceB != 'P' && choiceB != 'S');
+
+
+            if (choiceA == choiceB) {
+                System.out.println("It's a Tie!");
+            }
+            else if (choiceA == 'R' && choiceB == 'S') {
+                System.out.println("Rock breaks Scissors, Player A wins");
+            }
+            else if (choiceA == 'P' && choiceB == 'R') {
+                System.out.println("Paper covers Rock, Player A wins");
+            }
+            else if (choiceA == 'S' && choiceB == 'P') {
+                System.out.println("Scissors cuts Paper, Player A wins!");
+            }
+            else if (choiceA == 'S' && choiceB == 'R') {
+                System.out.println("Rock breaks Scissors, Player B wins");
+            }
+            else if (choiceA == 'R' && choiceB == 'P') {
+                System.out.println("Paper covers Rock, Player B wins");
+            }
+            else {
+                System.out.println("Scissors cuts Paper, Player B wins");
+            }
+
+
+            System.out.println("Do you want to play again? (Y/N)");
+            playAgain = in.next().charAt(0);
+        } while (playAgain == 'Y' || playAgain == 'y');
+    }
+}
